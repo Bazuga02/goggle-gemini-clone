@@ -14,9 +14,14 @@ const Main = () => {
     input,
   } = useContext(Context);
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onSent(); // Call onSent function when Enter key is pressed
+    }
+  };
+
   return (
     <div className="main">
-      +-
       <div className="nav">
         <p>Gemini</p>
         <img src={assets.ashu} alt="" />
@@ -74,6 +79,7 @@ const Main = () => {
           <div className="search-box">
             <input
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress} // Call handleKeyPress function on key press
               value={input}
               type="text"
               placeholder="Enter a prompt here"
